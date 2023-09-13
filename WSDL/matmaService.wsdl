@@ -1,0 +1,80 @@
+<wsdl:definitions name="matmaService" 
+targetNamespace="http://www.examples.com/wsdl/matmaService/"
+xmlns:tns="http://www.examples.com/wsdl/matmaService/"
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<wsdl:types>
+	<xsd:schema targetNamespace="http://www.examples.com/wsdl/matmaService/">
+		
+		<xsd:element name="dodaj">
+			<xsd:complexType>
+				<xsd:all>
+					<xsd:element name="number1" type="xsd:float"/>
+					<xsd:element name="number2" type="xsd:float"/>
+				</xsd:all>
+			</xsd:complexType>
+		</xsd:element>
+		
+		<xsd:element name="dodajResponse">
+			<xsd:complexType>
+				<xsd:all>
+					<xsd:element name="result" type="xsd:float" />
+				</xsd:all>
+			</xsd:complexType>
+		</xsd:element>
+		
+		<xsd:element name="error">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="message" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+		
+	</xsd:schema>
+</wsdl:types>
+
+<wsdl:message name="GetSumRequest">
+	<wsdl:part element="tns:dodaj" name="parameters"></wsdl:part>
+</wsdl:message>
+
+<wsdl:message name="GetSumResponse">
+	<wsdl:part element="tns:dodajResponse" name="parameters" />
+</wsdl:message>
+
+<wsdl:message name="errorMessage">
+	<wsdl:part element="tns:error" name="parameters" />
+</wsdl:message>
+
+<wsdl:portType name="MathService">
+	<wsdl:operation name="GetSum" >
+		<wsdl:input  message="tns:GetSumRequest"/>
+		<wsdl:output message="tns:GetSumResponse"/>
+		<wsdl:fault  message="tns:errorMessage"/>
+	</wsdl:operation>
+</wsdl:portType>
+
+<wsdl:binding name="matmaServiceSOAP" type="tns:MathService">
+	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+	<wsdl:operation name="GetSum">
+		<soap:operation soapAction="http://www.examples.com/wsdl/matmaService/GetSum"/>
+		<wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+	</wsdl:operation>
+</wsdl:binding>
+
+
+<wsdl:service name="matmaService">
+	<wsdl:documentation>WSDL File for matmaService - self-made example of WSDL for mocking and testing</wsdl:documentation>
+    <wsdl:port binding="tns:matmaServiceSOAP" name="matmaServiceSOAP">
+      <soap:address location="http://www.example.org/matmaService"/>
+    </wsdl:port>
+</wsdl:service>
+
+</wsdl:definitions>
