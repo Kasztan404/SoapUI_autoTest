@@ -65,15 +65,38 @@
    <soapenv:Body>
       <mat:dodaj>
          <!--You may enter the following 2 items in any order-->
-         <number1>?</number1>
-         <number2>?</number2>
+         <number2>2.1</number2>
+         <number1>-1</number1>
       </mat:dodaj>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="200485bd-5abe-42d7-a309-ed9bffe85491" port="8088" path="/matmaService" host="pop-os" name="matmaServiceSOAP MockService" bindToHostOnly="false" docroot="" faultMockOperation="GetSum"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="GetSum" id="b1571835-fb19-4f02-809b-2da85d894d29" interface="matmaServiceSOAP" operation="GetSum"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="1b2bf8eb-afe9-47f4-9e2d-b23b9fa8355a" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://www.examples.com/wsdl/matmaService/">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="200485bd-5abe-42d7-a309-ed9bffe85491" port="8088" path="/matmaService" host="pop-os" name="matmaServiceSOAP MockService" bindToHostOnly="false" docroot="" faultMockOperation="GetSum"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="GetSum" id="b1571835-fb19-4f02-809b-2da85d894d29" interface="matmaServiceSOAP" operation="GetSum"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>// START SCRIPT
+
+def wsdlcontext = context.mockService.getMockedInterfaces()[0].getDefinitionContext() 
+def validator = new com.eviware.soapui.impl.wsdl.support.wsdl.WsdlValidator(wsdlcontext);
+
+
+
+def msgExchange = new com.eviware.soapui.impl.wsdl.panels.mockoperation.WsdlMockRequestMessageExchange(mockRequest, mockOperation);
+def errors = validator.assertRequest(msgExchange, false);
+if (errors.length > 0 )
+return "Invalid"
+// END SCRIPT</con:dispatchPath><con:response name="Response 1" id="1b2bf8eb-afe9-47f4-9e2d-b23b9fa8355a" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:script>// create XmlHolder for request content
+def holder = new com.eviware.soapui.support.XmlHolder( mockRequest.requestContent )
+// get arguments and sum
+def arg1 = Float.parseFloat( holder["//number1"] )
+def arg2 = Float.parseFloat( holder["//number2"] )
+requestContext.sum =  Math.round((arg1 + arg2)*100)/100</con:script><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://www.examples.com/wsdl/matmaService/">
    <soapenv:Header/>
    <soapenv:Body>
       <mat:dodajResponse>
-         <result>2</result>
+         <result>${sum}</result>
       </mat:dodajResponse>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties><con:property><con:name>serverAdress</con:name><con:value>localhost:8088</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/></con:response><con:response name="Invalid" id="1b2bf8eb-afe9-47f4-9e2d-b23b9fa8355a" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:script/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://www.examples.com/wsdl/matmaService/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mat:error>
+         <message>Invalid request</message>
+      </mat:error>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties><con:property><con:name>serverAdress</con:name><con:value>localhost:8088</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
