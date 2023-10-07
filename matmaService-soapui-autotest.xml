@@ -69,7 +69,121 @@
          <number1>-1</number1>
       </mat:dodaj>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="200485bd-5abe-42d7-a309-ed9bffe85491" port="8088" path="/matmaService" host="pop-os" name="matmaServiceSOAP MockService" bindToHostOnly="false" docroot="" faultMockOperation="GetSum"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="GetSum" id="b1571835-fb19-4f02-809b-2da85d894d29" interface="matmaServiceSOAP" operation="GetSum"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>// START SCRIPT
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="bb515ed2-be82-4151-a212-c4f84ed0ae59" name="TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="64a924ad-ad63-450d-849a-d9de9549601d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TS_GetSum" searchProperties="true"><con:settings/><con:testStep type="request" id="90772840-eaa9-41df-9429-42415195c208" name="GetSum - Valid int"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>matmaServiceSOAP</con:interface><con:operation>GetSum</con:operation><con:request name="GetSum - Valid int" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="9629c761-d9ab-4991-b836-df33fadebdaa"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#serverAdress}/matmaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://www.examples.com/wsdl/matmaService/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mat:dodaj>
+         <!--You may enter the following 2 items in any order-->
+         <number1>1</number1>
+         <number2>2</number2>
+       </mat:dodaj>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a0c242e8-825b-4f49-9752-389e51ba10f1" name="SOAP Response"/><con:assertion type="Schema Compliance" id="6b2fd209-6900-46a6-85da-1bb9f462d846" name="Schema Compliance"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="ab0e0388-ec5e-4217-9013-5d3416996465" name="Not SOAP Fault"/><con:assertion type="XPath Match" id="7bf2bc6e-df2b-444e-8686-5ea3f29727ef" name="isResult 3"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace mat='http://www.examples.com/wsdl/matmaService/';
+
+//mat:dodajResponse/result</path><content>3</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="74ebe9cd-8603-4457-b537-527597439197" name="GetSum - Valid float"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>matmaServiceSOAP</con:interface><con:operation>GetSum</con:operation><con:request name="GetSum - Valid float" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="9629c761-d9ab-4991-b836-df33fadebdaa"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#serverAdress}/matmaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://www.examples.com/wsdl/matmaService/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mat:dodaj>
+         <!--You may enter the following 2 items in any order-->
+         <number2>9.132</number2>
+         <number1>-1.1111</number1>
+      </mat:dodaj>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a0c242e8-825b-4f49-9752-389e51ba10f1" name="SOAP Response"/><con:assertion type="Schema Compliance" id="6b2fd209-6900-46a6-85da-1bb9f462d846" name="Schema Compliance"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="ab0e0388-ec5e-4217-9013-5d3416996465" name="Not SOAP Fault"/><con:assertion type="XPath Match" id="7bf2bc6e-df2b-444e-8686-5ea3f29727ef" name="isResult 3"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace mat='http://www.examples.com/wsdl/matmaService/';
+
+//mat:dodajResponse/result</path><content>8.02</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="0a5da1ab-ee6a-44af-82cb-732dab03ce95" name="GetSum - inValid number1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>matmaServiceSOAP</con:interface><con:operation>GetSum</con:operation><con:request name="GetSum - inValid number1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="9629c761-d9ab-4991-b836-df33fadebdaa"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#serverAdress}/matmaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://www.examples.com/wsdl/matmaService/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mat:dodaj>
+         <!--You may enter the following 2 items in any order-->
+         <number2>9.132</number2>
+         <number1>someERROR:)</number1>
+      </mat:dodaj>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a0c242e8-825b-4f49-9752-389e51ba10f1" name="SOAP Response"/><con:assertion type="Schema Compliance" id="6b2fd209-6900-46a6-85da-1bb9f462d846" name="Schema Compliance" disabled="true"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="ab0e0388-ec5e-4217-9013-5d3416996465" name="Not SOAP Fault"/><con:assertion type="XPath Match" id="7bf2bc6e-df2b-444e-8686-5ea3f29727ef" name="non exists Result "><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace mat='http://www.examples.com/wsdl/matmaService/';
+
+exists(//mat:dodajResponse/result)</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="0204ae70-b31a-4543-b287-58fdfcb9a6c4" name="errorMessage"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace mat='http://www.examples.com/wsdl/matmaService/';
+
+//mat:error/message</path><content>Invalid request</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="435e7b78-c63e-45d5-88be-0276fea7fe81" name="GetSum - missing number1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>matmaServiceSOAP</con:interface><con:operation>GetSum</con:operation><con:request name="GetSum - missing number1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="9629c761-d9ab-4991-b836-df33fadebdaa"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#serverAdress}/matmaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://www.examples.com/wsdl/matmaService/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mat:dodaj>
+         <!--You may enter the following 2 items in any order-->
+         <number2>9.132</number2>
+         
+      </mat:dodaj>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a0c242e8-825b-4f49-9752-389e51ba10f1" name="SOAP Response"/><con:assertion type="Schema Compliance" id="6b2fd209-6900-46a6-85da-1bb9f462d846" name="Schema Compliance" disabled="true"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="ab0e0388-ec5e-4217-9013-5d3416996465" name="Not SOAP Fault"/><con:assertion type="XPath Match" id="7bf2bc6e-df2b-444e-8686-5ea3f29727ef" name="non exists Result "><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace mat='http://www.examples.com/wsdl/matmaService/';
+
+exists(//mat:dodajResponse/result)</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="0204ae70-b31a-4543-b287-58fdfcb9a6c4" name="errorMessage"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace mat='http://www.examples.com/wsdl/matmaService/';
+
+//mat:error/message</path><content>Invalid request</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="6f89f061-f015-41d7-b01a-90da880081d0" name="GetSum - empty number1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>matmaServiceSOAP</con:interface><con:operation>GetSum</con:operation><con:request name="GetSum - empty number1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="9629c761-d9ab-4991-b836-df33fadebdaa"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#serverAdress}/matmaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://www.examples.com/wsdl/matmaService/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mat:dodaj>
+         <!--You may enter the following 2 items in any order-->
+         <number2>9.132</number2>
+         <number1></number1>
+      </mat:dodaj>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a0c242e8-825b-4f49-9752-389e51ba10f1" name="SOAP Response"/><con:assertion type="Schema Compliance" id="6b2fd209-6900-46a6-85da-1bb9f462d846" name="Schema Compliance" disabled="true"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="ab0e0388-ec5e-4217-9013-5d3416996465" name="Not SOAP Fault"/><con:assertion type="XPath Match" id="7bf2bc6e-df2b-444e-8686-5ea3f29727ef" name="non exists Result "><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace mat='http://www.examples.com/wsdl/matmaService/';
+
+exists(//mat:dodajResponse/result)</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="0204ae70-b31a-4543-b287-58fdfcb9a6c4" name="errorMessage"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace mat='http://www.examples.com/wsdl/matmaService/';
+
+//mat:error/message</path><content>Invalid request</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="c6b08775-ad60-47e9-8183-ded3ffe6eb55" name="GetSum - inValid number2"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>matmaServiceSOAP</con:interface><con:operation>GetSum</con:operation><con:request name="GetSum - inValid number2" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="9629c761-d9ab-4991-b836-df33fadebdaa"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#serverAdress}/matmaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://www.examples.com/wsdl/matmaService/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mat:dodaj>
+         <!--You may enter the following 2 items in any order-->
+         <number2>newError</number2>
+         <number1>1991</number1>
+      </mat:dodaj>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a0c242e8-825b-4f49-9752-389e51ba10f1" name="SOAP Response"/><con:assertion type="Schema Compliance" id="6b2fd209-6900-46a6-85da-1bb9f462d846" name="Schema Compliance" disabled="true"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="ab0e0388-ec5e-4217-9013-5d3416996465" name="Not SOAP Fault"/><con:assertion type="XPath Match" id="7bf2bc6e-df2b-444e-8686-5ea3f29727ef" name="non exists Result "><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace mat='http://www.examples.com/wsdl/matmaService/';
+
+exists(//mat:dodajResponse/result)</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="0204ae70-b31a-4543-b287-58fdfcb9a6c4" name="errorMessage"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace mat='http://www.examples.com/wsdl/matmaService/';
+
+//mat:error/message</path><content>Invalid request</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="741d3337-339e-4abc-b301-bff67f647850" name="GetSum - missing number2"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>matmaServiceSOAP</con:interface><con:operation>GetSum</con:operation><con:request name="GetSum - missing number2" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="9629c761-d9ab-4991-b836-df33fadebdaa"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#serverAdress}/matmaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://www.examples.com/wsdl/matmaService/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mat:dodaj>
+         <!--You may enter the following 2 items in any order-->
+         
+         <number1>1991</number1>
+      </mat:dodaj>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a0c242e8-825b-4f49-9752-389e51ba10f1" name="SOAP Response"/><con:assertion type="Schema Compliance" id="6b2fd209-6900-46a6-85da-1bb9f462d846" name="Schema Compliance" disabled="true"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="ab0e0388-ec5e-4217-9013-5d3416996465" name="Not SOAP Fault"/><con:assertion type="XPath Match" id="7bf2bc6e-df2b-444e-8686-5ea3f29727ef" name="non exists Result "><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace mat='http://www.examples.com/wsdl/matmaService/';
+
+exists(//mat:dodajResponse/result)</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="0204ae70-b31a-4543-b287-58fdfcb9a6c4" name="errorMessage"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace mat='http://www.examples.com/wsdl/matmaService/';
+
+//mat:error/message</path><content>Invalid request</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="a767f714-a87c-427a-a243-35ecc2b01d52" name="GetSum - empty number2"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>matmaServiceSOAP</con:interface><con:operation>GetSum</con:operation><con:request name="GetSum - empty number2" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="9629c761-d9ab-4991-b836-df33fadebdaa"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#serverAdress}/matmaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://www.examples.com/wsdl/matmaService/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mat:dodaj>
+         <!--You may enter the following 2 items in any order-->
+         <number2></number2>
+         <number1>1991</number1>
+      </mat:dodaj>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a0c242e8-825b-4f49-9752-389e51ba10f1" name="SOAP Response"/><con:assertion type="Schema Compliance" id="6b2fd209-6900-46a6-85da-1bb9f462d846" name="Schema Compliance" disabled="true"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="ab0e0388-ec5e-4217-9013-5d3416996465" name="Not SOAP Fault"/><con:assertion type="XPath Match" id="7bf2bc6e-df2b-444e-8686-5ea3f29727ef" name="non exists Result "><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace mat='http://www.examples.com/wsdl/matmaService/';
+
+exists(//mat:dodajResponse/result)</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="0204ae70-b31a-4543-b287-58fdfcb9a6c4" name="errorMessage"><con:configuration><path>declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace mat='http://www.examples.com/wsdl/matmaService/';
+
+//mat:error/message</path><content>Invalid request</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService id="200485bd-5abe-42d7-a309-ed9bffe85491" port="8088" path="/matmaService" host="pop-os" name="matmaServiceSOAP MockService" bindToHostOnly="false" docroot="" faultMockOperation="GetSum"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="GetSum" id="b1571835-fb19-4f02-809b-2da85d894d29" interface="matmaServiceSOAP" operation="GetSum"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>// START SCRIPT
 
 def wsdlcontext = context.mockService.getMockedInterfaces()[0].getDefinitionContext() 
 def validator = new com.eviware.soapui.impl.wsdl.support.wsdl.WsdlValidator(wsdlcontext);
@@ -92,7 +206,7 @@ requestContext.sum =  Math.round((arg1 + arg2)*100)/100</con:script><con:respons
          <result>${sum}</result>
       </mat:dodajResponse>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/></con:response><con:response name="Invalid" id="1b2bf8eb-afe9-47f4-9e2d-b23b9fa8355a" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:script/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://www.examples.com/wsdl/matmaService/">
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/wsdl/matmaService/GetSum"/></con:response><con:response name="Invalid" id="1b2bf8eb-afe9-47f4-9e2d-b23b9fa8355a" httpResponseStatus="500" encoding="UTF-8"><con:settings/><con:script/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mat="http://www.examples.com/wsdl/matmaService/">
    <soapenv:Header/>
    <soapenv:Body>
       <mat:error>
